@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27D2BD801C792E90008860C9 /* CusAnimateMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D2BD7F1C792E90008860C9 /* CusAnimateMenu.m */; };
 		B8120C1F1C77A7AC005F8D5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8120C1E1C77A7AC005F8D5F /* main.m */; };
 		B8120C221C77A7AC005F8D5F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8120C211C77A7AC005F8D5F /* AppDelegate.m */; };
 		B8120C281C77A7AC005F8D5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8120C261C77A7AC005F8D5F /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27D2BD7E1C792E90008860C9 /* CusAnimateMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusAnimateMenu.h; sourceTree = "<group>"; };
+		27D2BD7F1C792E90008860C9 /* CusAnimateMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusAnimateMenu.m; sourceTree = "<group>"; };
 		B8120C1A1C77A7AC005F8D5F /* TabletAssignmentObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabletAssignmentObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8120C1E1C77A7AC005F8D5F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8120C201C77A7AC005F8D5F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				B8120C351C77ADCB005F8D5F /* MainCollectionViewController.m */,
 				B8120C371C77AE51005F8D5F /* MyCollectionViewCell.h */,
 				B8120C381C77AE51005F8D5F /* MyCollectionViewCell.m */,
+				27D2BD7E1C792E90008860C9 /* CusAnimateMenu.h */,
+				27D2BD7F1C792E90008860C9 /* CusAnimateMenu.m */,
 				B8120C261C77A7AC005F8D5F /* Main.storyboard */,
 				B8120C291C77A7AC005F8D5F /* Assets.xcassets */,
 				B8120C2B1C77A7AC005F8D5F /* LaunchScreen.storyboard */,
@@ -156,6 +161,7 @@
 			files = (
 				B8120C361C77ADCB005F8D5F /* MainCollectionViewController.m in Sources */,
 				B8120C221C77A7AC005F8D5F /* AppDelegate.m in Sources */,
+				27D2BD801C792E90008860C9 /* CusAnimateMenu.m in Sources */,
 				B8120C391C77AE52005F8D5F /* MyCollectionViewCell.m in Sources */,
 				B8120C1F1C77A7AC005F8D5F /* main.m in Sources */,
 			);
@@ -304,6 +310,7 @@
 				B8120C331C77A7AC005F8D5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
