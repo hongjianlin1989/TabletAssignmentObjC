@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CusAnimateMenu.h"
-@interface MainCollectionViewController : UICollectionViewController
-
-
+@interface MainCollectionViewController : UICollectionViewController<CusAnimateMenuDelegate>
 @property (strong, nonatomic) CusAnimateMenu * menu;
 
 

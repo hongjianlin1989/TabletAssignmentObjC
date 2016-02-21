@@ -37,6 +37,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void) BuildMenu
 {
     self.menu= [[CusAnimateMenu alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.menu.delegate=self;
     [self.menu buildMenu];
     [self.view addSubview:self.menu];
 }
@@ -54,6 +55,19 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.menu showMenu:showMenu];
 }
 
+#pragma mark - CusAnimateMenuDelegate
+- (NSArray *) SetsOfElementNeedForCusAnimateMenuDelegate
+{
+    return @[@"Menu Item 1", @"Menu Item 2", @"Menu Item 3", @"Menu Item 4"];
+}
+- (void) MenuDidClosed:(BOOL) menuShow
+{
+    showMenu=menuShow;
+}
+- (void) MenuItemDidSelected:(NSIndexPath *)indexPath
+{
+    NSLog(@"Selected");
+}
 
 #pragma mark <UICollectionViewDataSource>
 

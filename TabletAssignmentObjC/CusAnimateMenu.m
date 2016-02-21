@@ -24,15 +24,21 @@
  }
  */
 
+-(void)dealloc
+{
+    _delegate = nil;
+}
 - (void) buildMenu
 {
-    self.menuItems = @[@"Menu Item 1", @"Menu Item 2", @"Menu Item 3", @"Menu Item 4"];
-  //  self.hidden=true;
+    self.userInteractionEnabled=YES;
+    self.menuItems = [_delegate  SetsOfElementNeedForCusAnimateMenuDelegate];
     self.alpha=0;
     [self addBlurView];
     [self addScropeView];
     self.backgroundColor= [UIColor clearColor];
+    
 }
+
 
 - (void) addBlurView
 {
@@ -48,13 +54,12 @@
     self.scrollView.minimumZoomScale= 0.4f;
     self.scrollView.zoomScale = 1;
     self.scrollView.delegate = self;
-   // self.scrollView.hidden=true;
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
-  //  self.scrollView.backgroundColor=[UIColor blueColor];
     [self centerScrollViewContents];
 }
 
+#pragma mark - Build ScropeView
 -(void) addScropeView
 {
     
@@ -80,6 +85,13 @@
     
 }
 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    UIView *result = [super hitTest:point withEvent:event] ;
+    if (result==self.contentView) {
+        [self showMenu:false];
+    }
+    return result ;
+}
 
 - (void)scrollViewOneFingerDragged:(UIPanGestureRecognizer*)recognizer {
     // Zoom out slightly, capping at the minimum zoom scale specified by the scroll view
@@ -170,10 +182,7 @@
     CGRect regularFrame;
     
     if (showMenu) {
-      //  self.scrollView.alpha= 1;
         self.alpha=1;
-    //    self.scrollView.hidden=false;
-   //     self.hidden=false;
         regularFrame=CGRectMake(0, 0,320*SCREEN_WIDTH_RATIO,200*SCREEN_WIDTH_RATIO );
     }else
     {
@@ -190,10 +199,9 @@
     }completion:^(BOOL finished){
         if (showMenu==false) {
             [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
-              //  self.scrollView.alpha= 0;
                 self.alpha=0;
             }completion:^(BOOL finished){
-                
+                [_delegate MenuDidClosed:showMenu];
             }];
         }else{
             zoomIn=false;
@@ -202,6 +210,9 @@
     }];
     
 }
+
+
+
 
 #pragma mark - UITableView Delegate and Datasource method implementation
 
@@ -231,8 +242,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
-    
+    [_delegate MenuItemDidSelected:indexPath];
 }
+
+
 
 
 

@@ -8,12 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CusAnimateMenuDelegate <NSObject>
+
+@required
+
+- (NSArray *) SetsOfElementNeedForCusAnimateMenuDelegate;
+- (void) MenuDidClosed:(BOOL) menuShow;
+
+@optional
+- (void) MenuItemDidSelected:(NSIndexPath *)indexPath;
+
+@end
+
+
 @interface CusAnimateMenu : UIView<UITableViewDelegate, UITableViewDataSource>
+
 @property (nonatomic, strong) NSArray * menuItems;
 @property (nonatomic, strong) UIView *viewForMenu;
 @property (nonatomic, strong) UITableView *viewForTable;
 
-
+@property (nonatomic, weak) id <CusAnimateMenuDelegate> delegate;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *BlurView;
 @property (strong, nonatomic) UIView *contentView;
