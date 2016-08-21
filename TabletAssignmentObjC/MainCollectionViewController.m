@@ -24,6 +24,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"hello world");
+    
     UIImage *dotsImage = [UIImage imageNamed:@"dots"];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:dotsImage
                                                                       style:UIBarButtonItemStylePlain
